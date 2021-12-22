@@ -128,10 +128,7 @@ def to_tree(packet, parent=None):
     if type_id == 4:
         return LiteralValue(version, type_id, payload)
 
-    if parent is None and type_id != 4:
-        parent = Operator(version, type_id, payload)
-    else:
-        parent = Operator(version, type_id, payload)
+    parent = Operator(version, type_id, payload)
 
     for p in payload:
         parent.add_child(to_tree(p, parent))
