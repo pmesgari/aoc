@@ -1,10 +1,28 @@
 """
-620080001611562C8802118E34
-1010110010101.....
-(+ (+ 10 11) (+ 12 13)))
-         +
-    +          +
-10    11   12    13  
+What I have done:
+
+    read the hex input 620080001611562C8802118E34
+    convert it to a binary string 1010110010101.....
+    parse the binary string into a tree of packets (P1, [(P2, [P3, P4]), [(P5, [P6, P7])]])
+        if a packet is an operator packet it will have a format like (P, [children packets])
+    evaluate the tree from top to bottom
+
+What I want to achieve:
+    read the hex input 620080001611562C8802118E34
+    convert it to a binary string 1010110010101.....
+    convert the binary string into an expression e.g. (+ (+ 10 11) (+ 12 13)))
+    then convert the expression into an abstract syntax tree
+                +
+            +          +
+        10    11   12    13
+    things I need to figure out:
+        * how do I generate the expression?
+        * once I have the expression, how do I parse operators in prefix notation?
+            * how do I parse operators which take variable number of arguments for example:
+                (+ 2 3 4) = 9
+                (+ 2 (+ 3 4)) = 9
+                (+ 2 (+ 3 (+ 1 3))) = 9
+                (+ (+ 1 1) 3 4) = 9
 
 """
 
